@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "motor3d",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["serve.py", "5173", "--no-browser"],
+      "port": 5173
+    }
+  ]
+}

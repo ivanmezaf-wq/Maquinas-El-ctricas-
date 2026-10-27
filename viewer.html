@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Visor · Máquinas Eléctricas 3D</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script type="importmap">
+    { "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    } }
+  </script>
+</head>
+<body class="viewer">
+  <div class="layout">
+    <section id="stage">
+      <canvas id="c"></canvas>
+      <div class="hud-top">
+        <a class="back" href="index.html" title="Volver al catálogo">←</a>
+        <div class="title">
+          <h1 id="motor-name">Motor</h1>
+          <p id="motor-short"></p>
+        </div>
+        <select id="motor-switch" aria-label="Cambiar de motor"></select>
+      </div>
+      <div id="iso-banner" class="iso" hidden>
+        <span>Pieza aislada: <b id="iso-name"></b></span>
+        <button id="iso-exit">Ver motor completo (Esc)</button>
+      </div>
+      <div class="toolbar">
+        <button id="btn-explode" title="Despiece (E)">Despiece</button>
+        <label class="slider"><input id="explode" type="range" min="0" max="100" value="0" /><span id="explode-val">0 %</span></label>
+        <button id="btn-spin" title="Arrancar / parar la simulación">▶ Arrancar</button>
+        <button id="btn-section" title="Cortes vertical, horizontal y transversal">Cortes</button>
+        <button id="btn-reset" title="Encuadrar">Encuadrar</button>
+        <button id="btn-panel" class="only-mobile" title="Piezas">Piezas</button>
+      </div>
+      <div id="cut-panel" class="cut-panel" hidden>
+        <div class="cut-title"><h3>Cortes de sección</h3><button id="cut-close" class="x" aria-label="Cerrar">×</button></div>
+        <div id="cuts"></div>
+        <div class="cut-actions">
+          <button id="cut-quarter" title="Vertical + horizontal: abre un cuarto del motor">Cuarto de corte</button>
+          <button id="cut-clear">Quitar cortes</button>
+        </div>
+      </div>
+      <div class="help">Arrastrar: girar · Clic derecho: desplazar · Rueda: zoom hacia el cursor · Doble clic: centrar órbita en ese punto</div>
+      <div id="tip" class="tip" hidden></div>
+      <article id="info" class="info" hidden>
+        <button id="info-close" class="x" aria-label="Cerrar">×</button>
+        <p id="info-cat" class="cat"></p>
+        <h2 id="info-name"></h2>
+        <p id="info-desc"></p>
+        <p class="mat"><span>Material</span><span id="info-mat"></span></p>
+        <button id="info-iso">Aislar pieza</button>
+      </article>
+    </section>
+    <aside class="panel">
+      <nav class="tabs">
+        <button data-tab="parts" class="on">Piezas</button>
+        <button data-tab="sim">Simulación</button>
+      </nav>
+      <section id="tab-parts" class="tab-body">
+        <div class="panel-head">
+          <div class="row">
+            <h2>Piezas</h2>
+            <button id="btn-all">Mostrar todo</button>
+          </div>
+          <p id="part-count" class="muted"></p>
+          <input id="search" type="search" placeholder="Buscar pieza o material…" />
+        </div>
+        <div id="parts" class="parts"></div>
+        <details class="specs-box">
+          <summary>Ficha técnica</summary>
+          <div id="specs"></div>
+        </details>
+      </section>
+      <section id="tab-sim" class="tab-body sim" hidden></section>
+    </aside>
+  </div>
+  <script type="module" src="js/app/viewer.js"></script>
+</body>
+</html>

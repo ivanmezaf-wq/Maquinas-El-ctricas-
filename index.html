@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Máquinas Eléctricas 3D</title>
+  <meta name="description" content="Modelos 3D detallados de motores eléctricos: despiece, identificación de piezas y materiales." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script type="importmap">
+    { "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    } }
+  </script>
+</head>
+<body class="home">
+  <canvas id="bg"></canvas>
+  <header class="top">
+    <div class="brand">
+      <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="16" r="5" fill="currentColor"/><path d="M16 2v6M16 24v6M2 16h6M24 16h6" stroke="currentColor" stroke-width="2"/></svg>
+      <div>
+        <h1>Máquinas Eléctricas 3D</h1>
+        <p>Motores modelados pieza por pieza · despiece interactivo</p>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="intro">
+      <p>Todo motor tiene tres elementos constructivos comunes: <b>hierro activo</b> (núcleos laminados que conducen el flujo), <b>devanados</b> (conductores que llevan la corriente) y <b>hierro inactivo</b> (carcasa, escudos y soportes que protegen y sostienen a los otros dos). Elige un motor para explorarlo.</p>
+    </section>
+    <div id="grid" class="grid"></div>
+  </main>
+  <footer class="foot-note">Modelos paramétricos generados con three.js · unidades en mm</footer>
+  <script type="module" src="js/app/grid.js"></script>
+</body>
+</html>
